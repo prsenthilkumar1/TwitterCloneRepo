@@ -1,0 +1,44 @@
+﻿
+@model TwitterClone.ViewModel.TwitteViewModel
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/TwitterClone.js"></script>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    @Html.HiddenFor(m => m.User_ID) 
+    <div>
+        <div>
+            <h4>What are you doing?</h4>
+        </div>       
+        <div id="divTwitteContent">
+             @Html.TextAreaFor(m=>m.TweetContent, new { @class = "form-control" })            
+            <div allign="right">
+                <input type="button" value="Update" id="btnUpdate" />
+            </div>
+        </div>
+        <div id="divTwitte">
+            <label>Twittes</label>
+            <div id="divTwitteDetails">
+                <table>
+                    @if (Model.TwitteDetail != null)
+                    {
+                        foreach (var item in Model.TwitteDetail)
+                        {
+                            <tr>
+                                <td>@item.User_ID</td>
+                                <td>@item.Message</td>
+                                <td>@item.MessageCreateTime</td>
+                            </tr>
+                        }
+                    }                    
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

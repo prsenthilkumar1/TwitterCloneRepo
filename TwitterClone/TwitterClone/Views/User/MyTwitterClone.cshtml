@@ -1,0 +1,52 @@
+﻿@model TwitterClone.ViewModel.UserViewModel
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/TwitterClone.js"></script>
+<style>
+    nav {
+        float: left;
+        width: 30%;
+        height: 300px; /* only for demonstration, should be removed */
+        background: #ccc;
+        padding: 20px;
+    }
+    .clsTwitte {
+        float: left;
+        padding: 20px;
+        width: 70%;
+        background-color: #f1f1f1;
+        height: 300px; /* only for demonstration, should be removed */
+    }
+
+    section:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <h3>My Twitter Clone</h3>
+    </div>
+    <div>
+        @Html.HiddenFor(m => m.User_ID)
+        <section>
+            <nav>                               
+                @{
+                    Html.RenderPartial("FollowPage",Model);
+                }
+            </nav>
+            <div id="divTwitte" class="clsTwitte">
+                @{
+                    Html.RenderPartial("Twitte", Model.TwitteViewModel);
+                }                
+            </div>
+        </section>
+    </div>
+</body>
+</html>

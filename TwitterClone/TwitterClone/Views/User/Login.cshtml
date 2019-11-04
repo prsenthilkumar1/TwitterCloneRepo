@@ -1,0 +1,35 @@
+﻿@model TwitterClone.ViewModel.LoginViewModel
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/TwitterClone.js"></script>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        <h3>Welcome To My Twitter Clone!</h3> 
+    </div>
+    <div>
+        Login
+        <div>
+            <label class="form-control">   UserName :</label>
+            @Html.TextBoxFor(m=>m.User_ID, new { @class = "form-control" })
+        </div>
+        <div>
+            <label class="form-control">   Password :</label>
+            @Html.PasswordFor(m => m.Password,new {@class ="form-control"})
+        </div>
+        <div>
+            <input type="button" value="Login" id="btnLogin" />
+        </div>
+        <div>
+            New User?
+            @Html.ActionLink("SignUp","CreateAccount","User")
+        </div>
+
+    </div>
+</body>
+</html>
